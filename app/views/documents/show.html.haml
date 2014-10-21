@@ -1,0 +1,8 @@
+= form_tag(document_path(@document.token), class: %W|form|, method: :put) do
+
+  .ops
+    = submit_tag "保存当前版本", class: %|button new-version|
+    = submit_tag "另存新档",     class: %|button new-version|
+
+  .fields
+    = text_area_tag :content, @document.get(:content)
