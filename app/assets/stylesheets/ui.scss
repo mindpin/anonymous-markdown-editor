@@ -1,0 +1,25 @@
+@import "css/lily.scss";
+
+body {
+  background-color: #f1f1f1;
+  margin:0;
+  padding:0;
+}
+
+.markdown-editor {
+  position:relative;
+  height:600px;
+
+  textarea.markdown {
+    position:absolute;
+    top:10px;left:10px;bottom:10px;width:calc(50% - 15px);
+    resize:none;
+    box-sizing:border-box;
+    margin:0;
+  }
+  .html-result {
+    position:absolute;
+    top:10px;right:10px;bottom:10px;width:calc(50% - 15px);
+    background-color: #FFF;
+  }
+}
