@@ -1,4 +1,4 @@
-source "https://rubygems.org"
+source "http://rubygems.org"
 
 
 gem "rails",        "~> 4.1.6"
@@ -11,7 +11,7 @@ gem "turbolinks"
 gem "haml"
 
 gem "versioned_map",
-    git: "https://github.com/mindpin/versioned_map.git",
+    git: "git://github.com/mindpin/versioned_map.git",
     tag: "0.0.2.p2"
 
 group :development do
@@ -19,4 +19,8 @@ group :development do
   gem "pry"
 end
 
-# gem "unicorn"
+gem 'unicorn', '~> 4.8'
+
+gem "mina",
+    :github => "fushang318/mina",
+    :tag => "v0.2.0fix"
