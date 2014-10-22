@@ -9,8 +9,8 @@ GIT
 
 GIT
   remote: git://github.com/mindpin/versioned_map.git
-  revision: 732dc4bb80367c6b272eae6c014c6a12a3d84eda
-  tag: 0.0.2.p3
+  revision: 9d05143b911a8be0fa19bdc702605a9a04f69d8f
+  tag: 0.0.2.p4
   specs:
     versioned_map (0.0.1)
       mongoid (~> 4.0.0)

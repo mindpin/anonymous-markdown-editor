@@ -12,7 +12,7 @@ gem "haml"
 
 gem "versioned_map",
     git: "git://github.com/mindpin/versioned_map.git",
-    tag: "0.0.2.p3"
+    tag: "0.0.2.p4"
 
 group :development do
   gem "spring"
