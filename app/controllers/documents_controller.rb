@@ -14,25 +14,31 @@ class DocumentsController < ApplicationController
 
   def version
     @document = document.get_version(params[:version].to_i)
-    render template: "documents/show"
+    render template: "documents/index"
   end
 
   def show
     @document = document
+    render template: 'documents/index'
   end
 
   def update
     @document = document
     @document.set(:content, params[:content])
 
-    path = case params[:commit]
-           when "保存当前版本"
-             @document.update
-             version_document_path(@document.token, @document.max_version)
-           when "另存新档"
-             @document.save
-             document_path(@document.token)
-           end
+    # path = case params[:commit]
+    #        when "保存当前版本"
+    #          @document.update
+    #          version_document_path(@document.token, @document.max_version)
+    #        when "另存新档"
+    #          @document.save
+    #          document_path(@document.token)
+    #        end
+
+    path = begin
+      @document.update
+      version_document_path(@document.token, @document.max_version)
+    end
 
     redirect_to path
   end

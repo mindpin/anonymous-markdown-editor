@@ -1,25 +1,126 @@
-@import "css/lily.scss";
+@font-face {
+  font-family: "Futura-Condensed";
+  src: url('/font-futura/Futura-Condensed.eot');
+  src: local('☺'), 
+    url('/font-futura/Futura-Condensed.woff') format("woff"), 
+    url('/font-futura/Futura-Condensed.ttf') format("truetype"), 
+    url('/font-futura/Futura-Condensed.svg') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "source-code";
+  src: url('/source-code-font/SourceCodePro-Light.eot');
+  src: local('☺'), 
+    url('/source-code-font/SourceCodePro-Light.otf.woff') format("woff"),
+    url('/source-code-font/SourceCodePro-Light.ttf') format("truetype"),
+    url('/source-code-font/SourceCodePro-Light.svg') format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+$fa-font-path: "/font-awesome";
+$grid-gap: 20px;
+
+@import "lily/css/lily.scss";
 
 body {
   background-color: #f1f1f1;
-  margin:0;
-  padding:0;
+  code,
+  kbd,
+  pre,
+  samp {
+    font-family: "source-code" !important;
+  }
+}
+
+.toolbar {
+  padding:$grid-gap / 2 $grid-gap;
+  border-bottom: solid 1px #ddd;
+  .logo {
+    float: left;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Futura-Condensed";
+    color: $area-night;
+    margin-right: $grid-gap;
+    height:40px;line-height:40px;
+  }
+
+  .btns {
+    a.btn {
+      height:40px;line-height:40px;
+      padding:0 20px;
+      i {margin-right:5px;}
+    }
+  }
 }
 
 .markdown-editor {
-  position:relative;
-  height:600px;
-
-  textarea.markdown {
+  position:fixed;
+  top:61px;left:0;right:0;bottom:20px;
+  .markdown-area {
     position:absolute;
-    top:10px;left:10px;bottom:10px;width:calc(50% - 15px);
-    resize:none;
-    box-sizing:border-box;
-    margin:0;
+    top:0;left:0;bottom:0;width:50%;
+    background-color:rgba(black, 0.2);
+    .CodeMirror {
+      height:100%;
+      font-size:16px;
+    }
   }
-  .html-result {
+  .html-area {
     position:absolute;
-    top:10px;right:10px;bottom:10px;width:calc(50% - 15px);
+    top:0;right:0;bottom:0;width:50%;
     background-color: #FFF;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    padding: $grid-gap;
+    box-sizing: border-box;
+
+    >*:first-child {
+      margin-top:0;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      margin-top:1em;
+      margin-bottom:16px;
+      font-weight:bold;
+      line-height:1.4;
+    }
+
+    // 参考 github 的 markdown 渲染样式
+    h1 {
+      padding-bottom: 0.3em;
+      font-size: 2.25em;
+      line-height: 1.2;
+      border-bottom: 1px solid #eee;
+      font-weight: bold;
+    }
+
+    h2 {
+      padding-bottom: 0.3em;
+      font-size: 1.75em;
+      line-height: 1.225;
+      border-bottom: 1px solid #eee;
+    }
+
+    blockquote {
+      padding: 0 15px;
+      color: #777;
+      border-left: 4px solid #ddd;
+      margin: 0 0 16px 0;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    pre {
+      font-size: 16px;
+      border:0 none;
+      border-radius: $border-radius-default;
+      background: #111;
+    }
   }
 }

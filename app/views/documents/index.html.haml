@@ -1,8 +1,32 @@
-= form_tag(documents_path, class: %W|form|) do
+.form{:style => 'display:none'}
+  - if @document.blank?
+    = form_tag documents_path do
+      = text_area_tag :content
+  - else
+    = form_tag document_path(@document.token), method: :put do
+      = text_area_tag :content, @document.get(:content)
 
-  .ops
-    %button.button.save
-      保存
+.toolbar
+  .logo markdown editor
+  .btns
+    - if @document.blank?
+      %a.save.btn.btn-rounded.btn-flat-night.btn-large{:href => 'javascript:;'}
+        %i.fa.fa-save
+        %span 保存
+    - else
+      %a.update.btn.btn-rounded.btn-flat-night.btn-large{:href => 'javascript:;'}
+        %i.fa.fa-save
+        %span 保存当前版本
 
-  .fields
-    = text_area_tag :content
+      %a.save.btn.btn-rounded.btn-flat-night.btn-large{:href => 'javascript:;'}
+        %i.fa.fa-code-fork
+        %span 另存新档
+
+.markdown-editor
+  .markdown-area
+    - if @document.blank?
+      %textarea.source
+    - else
+      %textarea.source= @document.get(:content)
+
+  .html-area
