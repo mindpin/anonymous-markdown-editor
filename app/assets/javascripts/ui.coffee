@@ -28,6 +28,7 @@ class Editor
       styleActiveLine: true
       theme: 'vibrant-ink'
       indentWithTabs: false
+      lineWrapping: true
     }
 
     @show_html @cm.getValue()

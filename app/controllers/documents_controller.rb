@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   end
 
   def create
-    redirect_to documents_path if document_params[:content].blank?
+    redirect_to documents_path if document_params[:content].nil?
 
     @document = VersionedMap.new
     @document.set(:content, params[:content])

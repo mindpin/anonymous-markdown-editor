@@ -1,3 +1,67 @@
+:ruby
+  init_string = <<-EOS
+  # 这是一个匿名的 markdown 编辑器
+
+  域名是：<br/>
+  [markdown.4ye.me](markdown.4ye.me)<br/>
+  记好啦
+
+  -------------
+
+  ### 用途和用法
+
+  这个工具用来编辑和分享 markdown 文档。<br/>
+  编辑好的 markdown 文档，点击上面的 `保存` 按钮，会生成一个新的 URL. <br/>
+  把这个 URL 分享给任何人，他们都可以打开这个文档继续编辑。
+
+  继续编辑后，可以保存新的版本，也可以存为新的文档。<br/>
+  如果你用过 [jsFiddle](http://jsfiddle.net/) 或者 [codePen](http://codepen.io/) 这样的服务，<br/>
+  应该会对这种匿名的形式感到熟悉。
+
+  由于这个工具用到了一些 html5 特性，我推荐你使用 chrome / firefox 来访问它。
+
+  -------------
+
+  ### markdown？
+
+  知乎链接：[markdown 是什么？](http://www.zhihu.com/question/19963642)
+
+  > Markdown 是一种轻量级标记语言，它允许人们使用易读易写的纯文本格式编写文档，<br/>
+  > 然后转换成格式丰富的HTML页面。<br/> 
+  > —— wikipedia
+
+  许多人使用 markdown 撰写一些帮助文档和博客。
+
+  -------------
+
+  你可以使用 markdown 生成丰富的格式。
+
+  - 多级标题
+  - 图片，链接和文本引用
+  - 有序和无序列表
+  - 甚至包括程序代码
+
+  ```ruby
+  def hello_world
+    puts 'hello world'
+  end
+  ```
+
+
+  -------------
+
+  这个小工具的作者是<br/>
+
+  **kaid** [github.com/kaid](github.com/kaid) <br/><br/>
+  ![](http://img.teamkn.com/i/NfD4pydQ.png@96h_96w)<br/>
+
+
+  和 **ben7th** [github.com/ben7th](github.com/ben7th) <br/><br/>
+  ![](http://img.teamkn.com/i/aR8JA8sx.png@96h_96w)<br/>
+
+  你可以在 github 上找到他们。
+  EOS
+
 .form{:style => 'display:none'}
   - if @document.blank?
     = form_tag documents_path do
@@ -25,7 +89,7 @@
 .markdown-editor
   .markdown-area
     - if @document.blank?
-      %textarea.source
+      %textarea.source= init_string
     - else
       %textarea.source= @document.get(:content)
 
