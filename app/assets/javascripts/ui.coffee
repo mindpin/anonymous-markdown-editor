@@ -23,10 +23,11 @@ class Editor
     # @_load_storage()
 
     @cm = CodeMirror.fromTextArea @$textarea[0], {
-      mode: 'markdown'
+      mode: 'gfm'
       lineNumbers: true
       styleActiveLine: true
       theme: 'vibrant-ink'
+      indentWithTabs: false
     }
 
     @show_html @cm.getValue()

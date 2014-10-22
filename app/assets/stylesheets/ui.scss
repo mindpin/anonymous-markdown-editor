@@ -122,5 +122,13 @@ body {
       border-radius: $border-radius-default;
       background: #111;
     }
+
+    hr {
+      height:4px;
+      border-radius: $border-radius-default;
+      background-color:#ddd;
+      border:0 none;
+      margin:16px 0;
+    }
   }
 }
