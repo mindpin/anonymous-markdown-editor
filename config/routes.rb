@@ -6,4 +6,6 @@ Rails.application.routes.draw do
           as: :version
     end
   end
+
+  resources :images
 end

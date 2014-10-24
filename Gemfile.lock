@@ -8,6 +8,14 @@ GIT
       rake
 
 GIT
+  remote: git://github.com/mindpin/image-4ye.git
+  revision: 9ac5de309929f0ed4c1f386d85c868c28d14fdf2
+  tag: 0.0.1
+  specs:
+    image-4ye (0.0.1)
+      rest-client (~> 1.7.2)
+
+GIT
   remote: git://github.com/mindpin/versioned_map.git
   revision: 9d05143b911a8be0fa19bdc702605a9a04f69d8f
   tag: 0.0.2.p4
@@ -82,6 +90,7 @@ GEM
       connection_pool (~> 2.0)
       optionable (~> 0.2.0)
     multi_json (1.10.1)
+    netrc (0.8.0)
     open4 (1.3.4)
     optionable (0.2.0)
     origin (2.1.1)
@@ -109,6 +118,9 @@ GEM
       thor (>= 0.18.1, < 2.0)
     raindrops (0.13.0)
     rake (10.3.2)
+    rest-client (1.7.2)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -147,6 +159,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   haml
+  image-4ye!
   jquery-rails
   mina!
   pry
