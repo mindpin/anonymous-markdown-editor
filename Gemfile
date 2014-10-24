@@ -16,7 +16,7 @@ gem "versioned_map",
 
 gem "image-4ye",
     git: "git://github.com/mindpin/image-4ye.git",
-    tag: "0.0.1"
+    tag: "0.0.2"
 
 group :development do
   gem "spring"
