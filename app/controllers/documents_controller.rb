@@ -19,6 +19,7 @@ class DocumentsController < ApplicationController
 
   def show
     @document = document
+    @document.get_version(0)
     render template: 'documents/index'
   end
 
