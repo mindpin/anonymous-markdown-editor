@@ -37,18 +37,30 @@ class Editor
       @show_html @cm.getValue()
 
     # 保存按钮
-    @$save_btn.on 'click', =>
-      $form = jQuery('form')
-      $form.find('textarea').val @cm.getValue()
-      $form.attr 'action', '/'
-      $form.find('input[name=_method]').val 'post'
-      $form.submit()
+    @$save_btn.on 'click', => @save()
+    @$update_btn.on 'click', => @update()
 
-    @$update_btn.on 'click', =>
-      $form = jQuery('form')
-      $form.find('textarea').val @cm.getValue()
-      $form.submit()
+    that = @
+    jQuery(window).keydown (evt)->
+      if (evt.keyCode is 83) and evt.ctrlKey
+        evt.preventDefault()
+        if that.$update_btn.length > 0
+          that.update()
+        else
+          that.save()
 
+
+  save: ->
+    $form = jQuery('form')
+    $form.find('textarea').val @cm.getValue()
+    $form.attr 'action', '/'
+    $form.find('input[name=_method]').val 'post'
+    $form.submit()
+
+  update: ->
+    $form = jQuery('form')
+    $form.find('textarea').val @cm.getValue()
+    $form.submit()
 
 
 jQuery(document).on 'ready page:load', ->
