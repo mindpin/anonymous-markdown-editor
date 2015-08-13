@@ -13,7 +13,7 @@ class DocumentsController < ApplicationController
   end
 
   def version
-    if params[:version] == :latest
+    if params[:version] == "latest"
       @document = document.latest
     else
       @document = document.get_version(params[:version].to_i)
