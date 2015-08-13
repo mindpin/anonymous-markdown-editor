@@ -13,7 +13,11 @@ class DocumentsController < ApplicationController
   end
 
   def version
-    @document = document.get_version(params[:version].to_i)
+    if params[:version] == :latest
+      @document = document.latest
+    else
+      @document = document.get_version(params[:version].to_i)
+    end
     render template: "documents/index"
   end
 
